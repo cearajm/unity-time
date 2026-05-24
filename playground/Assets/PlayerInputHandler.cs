@@ -34,12 +34,35 @@ public class PlayerInputHandler : MonoBehaviour
         rotationAction = mapReference.FindAction(rotation);
         jumpAction = mapReference.FindAction(jump);
         sprintAction = mapReference.FindAction(sprint);
+
+        SubscribeActionValuesToInputEvents();
     }
 
     private void SubscribeActionValuesToInputEvents()
     {
+        // called every time the input action changes
         movementAction.performed += inputInfo => MovementInput = inputInfo.ReadValue<Vector2>();
         movementAction.canceled += inputInfo => MovementInput = Vector2.zero;
+
+        rotationAction.performed += inputInfo => RotationInput = inputInfo.ReadValue<Vector2>();
+        rotationAction.canceled += inputInfo => RotationInput = Vector2.zero;
+
+        jumpAction.performed += inputInfo => JumpTriggered = true;
+        jumpAction.canceled += inputInfo => JumpTriggered = false;
+
+        sprintAction.performed += inputInfo => SprintTriggered = true;
+        sprintAction.canceled += inputInfo => SprintTriggered = false;
+
+    }
+
+    private void OnEnable()
+    {
+        playerControls.FindActionMap(actionMapName).Enable();
+    }
+
+    private void OnDisable()
+    {
+        playerControls.FindActionMap(actionMapName).Disable();
     }
 
 }
