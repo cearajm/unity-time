@@ -15,6 +15,11 @@ public class PlayerInputHandler : MonoBehaviour
     [SerializeField] private string jump = "Jump";
     [SerializeField] private string sprint = "Sprint";
 
+    // [SerializeField] private string pause = "Pause";
+    // private InputAction pauseAction;
+    // public bool PauseTriggered { get; private set; }
+
+
     private InputAction movementAction;
     private InputAction rotationAction;
     private InputAction jumpAction;
@@ -35,6 +40,8 @@ public class PlayerInputHandler : MonoBehaviour
         jumpAction = mapReference.FindAction(jump);
         sprintAction = mapReference.FindAction(sprint);
 
+        // pauseAction = mapReference.FindAction(pause);
+
         SubscribeActionValuesToInputEvents();
     }
 
@@ -52,6 +59,8 @@ public class PlayerInputHandler : MonoBehaviour
 
         sprintAction.performed += inputInfo => SprintTriggered = true;
         sprintAction.canceled += inputInfo => SprintTriggered = false;
+
+        // pauseAction.canceled += inputInfo => PauseTriggered = false;
 
     }
 
