@@ -3,17 +3,21 @@ using UnityEngine.InputSystem;
 
 public class PlayerInputHandler : MonoBehaviour
 {
-    [Header("Input Action Asset")]
-    [SerializeField] private InputActionAsset playerControls;
+    // [Header("Input Action Asset")]
+    // [SerializeField] private InputActionAsset playerControls;
 
-    [Header("Action Map Name Reference")]
-    [SerializeField] private string actionMapName = "Player";
+    // [Header("Action Map Name Reference")]
+    // [SerializeField] private string actionMapName = "Player";
 
-    [Header("Action Name References")]
-    [SerializeField] private string movement = "Movement";
-    [SerializeField] private string rotation = "Rotation";
-    [SerializeField] private string jump = "Jump";
-    [SerializeField] private string sprint = "Sprint";
+    // [Header("Action Name References")]
+    // [SerializeField] private string movement = "Movement";
+    // [SerializeField] private string rotation = "Rotation";
+    // [SerializeField] private string jump = "Jump";
+    // [SerializeField] private string sprint = "Sprint";
+    // [SerializeField] private string movement = "Move";
+    // [SerializeField] private string rotation = "Look";
+    // [SerializeField] private string jump = "Jump";
+    // [SerializeField] private string sprint = "Sprint";
 
     // [SerializeField] private string pause = "Pause";
     // private InputAction pauseAction;
@@ -31,14 +35,22 @@ public class PlayerInputHandler : MonoBehaviour
     public bool SprintTriggered { get; private set; }
 
 
-    private void Awake()
+    private void Start()
     {
-        InputActionMap mapReference = playerControls.FindActionMap(actionMapName);
+        // InputActionMap mapReference = playerControls.FindActionMap(actionMapName);
+        // Debug.Log("ref: " + mapReference);
 
-        movementAction = mapReference.FindAction(movement);
-        rotationAction = mapReference.FindAction(rotation);
-        jumpAction = mapReference.FindAction(jump);
-        sprintAction = mapReference.FindAction(sprint);
+        // movementAction = mapReference.FindAction(movement);
+        // rotationAction = mapReference.FindAction(rotation);
+        // jumpAction = mapReference.FindAction(jump);
+        // sprintAction = mapReference.FindAction(sprint);
+
+        movementAction = InputSystem.actions.FindAction("Move");
+        rotationAction = InputSystem.actions.FindAction("Look");
+        jumpAction = InputSystem.actions.FindAction("Jump");
+        sprintAction = InputSystem.actions.FindAction("Sprint");
+
+        // movementAction.Enable();
 
         // pauseAction = mapReference.FindAction(pause);
 
@@ -66,12 +78,13 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        playerControls.FindActionMap(actionMapName).Enable();
+        // playerControls.FindActionMap(actionMapName).Enable();
+        // InputSystem.Enable();
     }
 
-    private void OnDisable()
-    {
-        playerControls.FindActionMap(actionMapName).Disable();
-    }
+    // private void OnDisable()
+    // {
+    //     playerControls.FindActionMap(actionMapName).Disable();
+    // }
 
 }

@@ -22,6 +22,7 @@ public class FirstPersonController : MonoBehaviour
 
     private Vector3 currentMovement;
     private float verticalRotation;
+    
 
     //ternary operator: if sprintTriggered, walk * multiplier. else, walkSpeed = 1
     private float CurrentSpeed => walkSpeed * (playerInputHandler.SprintTriggered ? sprintMultiplier : 1);
@@ -43,6 +44,7 @@ public class FirstPersonController : MonoBehaviour
     private Vector3 CalculateWorldDirection()
     {
         Vector3 inputDirection = new Vector3(playerInputHandler.MovementInput.x, 0f, playerInputHandler.MovementInput.y);
+        // Vector3 inputDirection = new Vector3(InputSystem.actions.FindAction("Move").x, 0f, playerInputHandler.MovementInput.y);
         Vector3 worldDirection = transform.TransformDirection(inputDirection);
         return worldDirection.normalized;
     }
