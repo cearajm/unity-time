@@ -860,6 +860,7 @@ GameObject:
   - component: {fileID: 547151180}
   - component: {fileID: 547151179}
   - component: {fileID: 547151178}
+  - component: {fileID: 547151182}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -951,6 +952,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &547151182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 547151177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d549a6973017e84abaa3e986a1b742a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
+  pauseMenu: {fileID: 1032347467}
+  playerInputHandler: {fileID: 1736708455}
+  isPaused: 0
 --- !u!1 &590379713
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,12 +1769,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31d97268c1ec45542bd7f1025716bc98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInputHandler
-  playerControls: {fileID: -944628639613478452, guid: bd513c5f192fdd545a8f2fd14f796a9c, type: 3}
-  actionMapName: Player
-  movement: Movement
-  rotation: Rotation
-  jump: Jump
-  sprint: Sprint
+  pauseMenu: {fileID: 547151182}
 --- !u!4 &1736708456
 Transform:
   m_ObjectHideFlags: 0

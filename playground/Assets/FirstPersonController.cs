@@ -40,10 +40,10 @@ public class FirstPersonController : MonoBehaviour
         HandleMovement();
         HandleRotation();
 
-        if(playerInputHandler.PauseTriggered)
-        {
-            Debug.Log("paused");
-        }
+        // if(playerInputHandler.PauseTriggered)
+        // {
+        //     Debug.Log("paused");
+        // }
 
     }
 
