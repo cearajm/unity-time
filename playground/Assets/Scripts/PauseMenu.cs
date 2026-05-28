@@ -50,4 +50,9 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
     }
 
+    public void Test()
+    {
+        print("test hi");
+    }
+
 }

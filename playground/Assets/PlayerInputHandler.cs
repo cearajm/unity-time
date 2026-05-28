@@ -23,16 +23,19 @@ public class PlayerInputHandler : MonoBehaviour
     // private InputAction pauseAction;
     // public bool PauseTriggered { get; private set; }
 
+    public PauseMenu pauseMenu;
 
     private InputAction movementAction;
     private InputAction rotationAction;
     private InputAction jumpAction;
     private InputAction sprintAction;
+    private InputAction pauseAction;
 
     public Vector2 MovementInput { get; private set; }
     public Vector2 RotationInput { get; private set; }
     public bool JumpTriggered { get; private set; }
     public bool SprintTriggered { get; private set; }
+    public bool PauseTriggered { get; private set; }
 
 
     private void Start()
@@ -50,11 +53,16 @@ public class PlayerInputHandler : MonoBehaviour
         jumpAction = InputSystem.actions.FindAction("Jump");
         sprintAction = InputSystem.actions.FindAction("Sprint");
 
+        pauseAction = InputSystem.actions.FindAction("Cancel");
+
         // movementAction.Enable();
 
         // pauseAction = mapReference.FindAction(pause);
 
         SubscribeActionValuesToInputEvents();
+
+        pauseMenu.Test();
+        Debug.Log(pauseAction);
     }
 
     private void SubscribeActionValuesToInputEvents()
@@ -72,6 +80,9 @@ public class PlayerInputHandler : MonoBehaviour
         sprintAction.performed += inputInfo => SprintTriggered = true;
         sprintAction.canceled += inputInfo => SprintTriggered = false;
 
+        pauseAction.performed += inputInfo => PauseTriggered = true;
+        pauseAction.canceled += inputInfo => PauseTriggered = false;
+
         // pauseAction.canceled += inputInfo => PauseTriggered = false;
 
     }
@@ -86,5 +97,6 @@ public class PlayerInputHandler : MonoBehaviour
     // {
     //     playerControls.FindActionMap(actionMapName).Disable();
     // }
+
 
 }

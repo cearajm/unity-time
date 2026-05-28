@@ -39,6 +39,12 @@ public class FirstPersonController : MonoBehaviour
     {
         HandleMovement();
         HandleRotation();
+
+        if(playerInputHandler.PauseTriggered)
+        {
+            Debug.Log("paused");
+        }
+
     }
 
     private Vector3 CalculateWorldDirection()
