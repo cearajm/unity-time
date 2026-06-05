@@ -965,7 +965,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenu
   pauseMenu: {fileID: 1032347467}
-  playerInputHandler: {fileID: 1736708455}
   isPaused: 0
 --- !u!1 &590379713
 GameObject:
